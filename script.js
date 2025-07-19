@@ -90,6 +90,15 @@ class PomodoroTimer {
         this.pause();
         this.timeLeft = this.totalTime;
         this.updateDisplay();
+        
+        // Reset slider handle to left position (pause state)
+        this.startPauseHandle.style.transition = 'left 0.3s ease';
+        this.startPauseHandle.style.left = '0px';
+        
+        // Remove transition after animation completes
+        setTimeout(() => {
+            this.startPauseHandle.style.transition = '';
+        }, 300);
     }
 
     switchMode(button) {
